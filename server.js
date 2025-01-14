@@ -1,22 +1,19 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-app.use(cors());
 
 const app = express();
+app.use(cors());
+
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
-//const API_KEY = ""; 
 
-// Middleware для обработки JSON
 app.use(express.json());
 
-// Маршрут по умолчанию
 app.get('/', (req, res) => {
     res.send('Server work!');
 });
 
-// Обработчик POST-запроса для работы с OpenAI
 app.post('/api/chat', async (req, res) => {
     const { messages } = req.body;
 
